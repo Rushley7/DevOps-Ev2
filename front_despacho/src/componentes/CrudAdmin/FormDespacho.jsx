@@ -7,8 +7,10 @@ export const FormDespacho = ({ venta, onClose }) => {
 
   const onSubmit = async (data) => {
     console.log("onSubmit ejecutado");
-    const API_VENTAS = import.meta.env.VITE_API_VENTAS_URL || 'http://localhost:8080';
-    const API_DESPACHOS = import.meta.env.VITE_API_DESPACHOS_URL || 'http://localhost:8081';
+    
+    // CORREGIDO: Apunta directo a las IPs y puertos reales de producción en AWS
+    const API_VENTAS = import.meta.env.VITE_API_VENTAS_URL || 'http://34.227.159.218:8081';
+    const API_DESPACHOS = import.meta.env.VITE_API_DESPACHOS_URL || 'http://34.227.159.218:8082';
 
     const jsonData = {
       fechaDespacho: data.fechaDespacho,
@@ -44,7 +46,7 @@ export const FormDespacho = ({ venta, onClose }) => {
         }
       });
       Swal.fire({
-        title: "Despacho registrado 🛻!",
+        title: "Despacho registered 🛻!",
         text: "El despacho ha sido generado con éxito en la base de datos",
         icon: "success",
         confirmButtonText: "Aceptar",
@@ -69,7 +71,7 @@ export const FormDespacho = ({ venta, onClose }) => {
             type="date"
             placeholder="Ingresa fecha de despacho"
             className="border border-gray-300 rounded-lg block w-full p-1"
-            {...register("fechaDespacho", { required: true })}
+            ...register("fechaDespacho", { required: true })}
           />
         </div>
         <div className="mb-5">
@@ -78,7 +80,7 @@ export const FormDespacho = ({ venta, onClose }) => {
             type="text"
             placeholder="Elige patente de camión"
             className="border border-gray-300 rounded-lg block w-full p-1"
-            {...register("patenteCamion", { required: true })}
+            ...register("patenteCamion", { required: true })}
           />
         </div>
         <div className="mb-5">
