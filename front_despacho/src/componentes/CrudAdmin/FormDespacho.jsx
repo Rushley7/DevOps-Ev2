@@ -46,7 +46,7 @@ export const FormDespacho = ({ venta, onClose }) => {
         }
       });
       Swal.fire({
-        title: "Despacho registered 🛻!",
+        title: "Despacho registrado 🛻!",
         text: "El despacho ha sido generado con éxito en la base de datos",
         icon: "success",
         confirmButtonText: "Aceptar",
@@ -71,7 +71,7 @@ export const FormDespacho = ({ venta, onClose }) => {
             type="date"
             placeholder="Ingresa fecha de despacho"
             className="border border-gray-300 rounded-lg block w-full p-1"
-            ...register("fechaDespacho", { required: true })}
+            {...register("fechaDespacho", { required: true })}
           />
         </div>
         <div className="mb-5">
@@ -80,7 +80,7 @@ export const FormDespacho = ({ venta, onClose }) => {
             type="text"
             placeholder="Elige patente de camión"
             className="border border-gray-300 rounded-lg block w-full p-1"
-            ...register("patenteCamion", { required: true })}
+            {...register("patenteCamion", { required: true })}
           />
         </div>
         <div className="mb-5">
