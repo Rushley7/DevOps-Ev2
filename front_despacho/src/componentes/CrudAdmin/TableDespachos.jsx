@@ -7,7 +7,9 @@ export const TableDespachos = () => {
   const [despachos, setDespachos] = useState([]);
 
   const despacho = async () => {
-    const API_DESPACHOS = import.meta.env.VITE_API_DESPACHOS_URL || 'http://localhost:8081';
+    // CORREGIDO: Cambiado localhost por la IP de AWS en el puerto correcto de Despachos (8082)
+    const API_DESPACHOS = import.meta.env.VITE_API_DESPACHOS_URL || 'http://34.227.159.218:8082';
+    
     await axios
       .get(`${API_DESPACHOS}/api/v1/despachos`, {
         headers:{
