@@ -1,10 +1,10 @@
 FROM maven:3.8.5-openjdk-17-slim AS build
 WORKDIR /app
-COPY pom.xml .
 
+COPY Springboot-API-REST/pom.xml .
 RUN mvn dependency:go-offline -B
-COPY Springboot-API-REST src
 
+COPY Springboot-API-REST src
 RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:17-jre-alpine
